@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viver Bem na Melhor Idade - Sua Saúde em Primeiro Lugar</title>
+    <!-- Bootstrap 5.3.3 - Framework CSS para responsividade e componentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome - Biblioteca de ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Estilos customizados otimizados para o público idoso -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+<body class="fonte-amigavel">
+    <!-- Banner de aceitação de cookies - fixo no rodapé da tela -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h5 class="mb-2">🍪 Nós usamos cookies para melhorar sua experiência</h5>
+                    <p class="mb-0">Oi! Usamos cookies para deixar o site mais fácil de usar e para lembrar suas preferências. Você pode aceitar ou recusar — nada muda no conteúdo que você vai ver.</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button id="recusarCookies" class="btn btn-outline-secondary btn-lg me-2">❌ Recusar</button>
+                    <button id="aceitarCookies" class="btn btn-success btn-lg">✅ Aceitar e continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho principal com gradiente verde -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="h2 mb-0">Viver Bem na Melhor Idade</h1>
+                    <p class="mb-0 mt-1">Cuidando da sua saúde com carinho e informação</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <!-- Botão de áudio para acessibilidade -->
+                    <button class="btn btn-outline-light btn-lg" onclick="toggleAudio()">
+                        🔊 Ouvir conteúdo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Área de conteúdo principal -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Primeira seção: Descarte de medicamentos + Quiz educativo -->
+            <section id="descarte" class="mb-5">
+                <h2 class="text-center mb-4">♻️ Descarte Consciente de Medicamentos</h2>
+                
+                <!-- Container do vídeo educativo -->
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="bg-light rounded p-4">
+                            <h3 class="text-center text-primary mb-3">📺 Vídeo Educativo</h3>
+                            <p class="text-center mb-4">Assista ao vídeo sobre o descarte correto de medicamentos</p>
+                            
+                            <!-- Player de vídeo responsivo com proporção 16:9 -->
+                            <div class="ratio ratio-16x9">
+                                <video 
+                                    id="video-descarte" 
+                                    controls 
+                                    preload="metadata"
+                                    poster="videos/thumb-descarte.svg"
+                                    class="rounded">
+                                    
+                                    <source src="videos/descarte-medicamentos.mp4" type="video/mp4">
+                                    
+                                    <!-- Fallback para navegadores sem suporte a HTML5 video -->
+                                    <p class="text-center mt-3">
+                                        Seu navegador não suporta vídeo HTML5. 
+                                        <a href="videos/descarte-medicamentos.mp4" target="_blank" class="btn btn-primary" download>
+                                            📥 Baixar vídeo
+                                        </a>
+                                    </p>
+                                </video>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <strong>🎬 Vídeo: "Descarte correto de medicamentos" - Eurofarma Brasil</strong>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sistema de quiz interativo sobre o vídeo -->
+                <div id="quiz-container" class="quiz-container">
+                    <div class="quiz-card">
+                        <!-- Painel de progresso no topo -->
+                        <div class="quiz-indicators">
+                            <div class="quiz-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value" id="pergunta-atual">1</span>
+                                    <span class="stat-label">Pergunta</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value" id="total-perguntas">5</span>
+                                    <span class="stat-label">Total</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value" id="pontuacao-atual">0</span>
+                                    <span class="stat-label">Acertos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cabeçalho do quiz com barra de progresso -->
+                        <div class="quiz-header text-center">
+                            <h3 class="text-primary">TESTE: SEU REMÉDIO, O LIXO E O MEIO AMBIENTE</h3>
+                            <p class="lead">Teste seus conhecimentos do vídeo sobre o descarte correto de medicamentos</p>
+                            <div class="progress">
+                                <div id="quiz-progress" class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- Tela inicial do quiz -->
+                        <div id="iniciar-quiz-container" class="text-center mb-4">
+                            <button id="iniciar-quiz-btn" class="btn btn-primary btn-lg">
+                                📝 Iniciar Quiz sobre Descarte Consciente
+                            </button>
+                            <p class="mt-2 text-muted">Teste seus conhecimentos com 5 perguntas!</p>
+                        </div>
+
+                        <!-- Área onde as perguntas são exibidas -->
+                        <div id="quiz-area" style="display: none;">
+                            <div id="pergunta-container" class="pergunta-container">
+                                <h4 id="pergunta-texto" class="pergunta-texto"></h4>
+                                <div id="alternativas-container" class="alternativas-container"></div>
+                            </div>
+
+                            <!-- Feedback após responder cada pergunta -->
+                            <div id="feedback-container" class="feedback-container" style="display: none;">
+                                <div id="feedback-mensagem" class="alert"></div>
+                                <div id="feedback-explicacao" class="mt-3 p-3 bg-light rounded"></div>
+                                <div class="text-center mt-4">
+                                    <button id="proxima-btn" class="btn btn-primary btn-lg">➡️ Próxima Pergunta</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resultado final do quiz -->
+                        <div id="resultado-container" class="resultado-container" style="display: none;">
+                            <div id="resultado-card" class="resultado-card"></div>
+                            <div class="text-center mt-4">
+                                <button id="tentar-novamente-btn" class="btn btn-primary btn-lg">🔄 Tente Novamente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Guia OTC - Cards interativos com informações sobre medicamentos de venda livre -->
+            <section id="otc" class="mb-5">
+                <h2 class="text-center mb-4">💊 Guia de Medicamentos sem Receita - Princípio Ativo e Nome Fantasia</h2>
+                
+                <!-- Grid dinâmico onde os flashcards são renderizados via JavaScript -->
+                <div class="flashcards-grid"></div>
+                
+                <!-- Instruções para interação com os cards -->
+                <div class="alert alert-info mt-4 text-center">
+                    <p class="mb-0"><strong>Clique em qualquer card</strong> para ver informações importantes sobre o medicamento</p>
+                </div>
+            </section>
+
+            <!-- Calendário de vacinação específico para pessoas idosas com base no Ministério da Saúde -->
+            <section id="vacinas" class="mb-5">
+                <h2 class="text-center mb-4">💉 Calendário de Vacinação para Idosos</h2>
+                
+                <!-- Alertas informativos sobre a importância da vacinação -->
+                <div class="alert alert-info mb-4 text-center" role="alert">
+                    <h5 class="alert-heading">💡 Importante!</h5>
+                    <p class="mb-2"><strong>Mantenha sua caderneta de vacinação atualizada</strong></p>
+                    <p class="mb-2"><strong>Consulte sempre um profissional de saúde antes de tomar qualquer vacina.</strong></p>
+                    <p class="mb-0"><strong>Este calendário é baseado nas recomendações do Ministério da Saúde.</strong></p>
+                </div>
+
+                <!-- Tabela responsiva com dados das vacinas recomendadas -->
+                <div class="table-responsive calendario-container">
+                    <table class="table table-striped calendario-vacinas" aria-label="Calendário de vacinação para idosos">
+                        <thead>
+                            <tr>
+                                <th>🩹 Vacina</th>
+                                <th>💊 Doses</th>
+                                <th>🛡️ Protege Contra</th>
+                                <th>📋 Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>🌡️ Influenza (Gripe)</strong></td>
+                                <td>1 dose/ano</td>
+                                <td>Influenza/Gripe</td>
+                                <td>Disponível anualmente na rede pública</td>
+                            </tr>
+                            <tr>
+                                <td><strong>💉 COVID-19</strong></td>
+                                <td>1 dose/6 meses</td>
+                                <td>Formas graves da COVID-19</td>
+                                <td>Conforme orientação do Ministério da Saúde</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🦠 Hepatite B</strong></td>
+                                <td>3 doses</td>
+                                <td>Hepatite B, Hepatite D</td>
+                                <td>Para não vacinados ou com esquema incompleto</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🔒 dT (Difteria/Tétano)</strong></td>
+                                <td>3 doses + reforço</td>
+                                <td>Difteria, Tétano</td>
+                                <td>Reforço a cada 10 anos (5 anos se risco)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>💉 Pneumocócica 23-valente</strong></td>
+                                <td>2 doses*</td>
+                                <td>Doenças pneumocócicas</td>
+                                <td>*Idosos acamados, institucionalizados e povos indígenas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🟡 Febre Amarela</strong></td>
+                                <td>1 dose*</td>
+                                <td>Febre amarela</td>
+                                <td>*Apenas para não vacinados em áreas de risco</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🩺 Tríplice Viral (SCR)</strong></td>
+                                <td>2 doses*</td>
+                                <td>Sarampo, Caxumba, Rubéola</td>
+                                <td>*Somente para trabalhadores de saúde</td>
+                            </tr>
+                            <tr>
+                                <td><strong>🔴 Varicela (Catapora)</strong></td>
+                                <td>2 doses*</td>
+                                <td>Varicela/Catapora</td>
+                                <td>*Povos indígenas e profissionais de saúde sem histórico da doença</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 observacoes-vacinas">
+                    <h5 class="text-primary mb-3">📋 Observações Importantes:</h5>
+                    <div class="row">
+                        <ul class="col-lg-6 lista-observacoes">
+                            <li><strong>dT:</strong> Reforço a cada 10 anos (5 anos em caso de ferimentos com risco de tétano)</li>
+                            <li><strong>Febre amarela:</strong> Apenas para pessoas não vacinadas em áreas de risco</li>
+                            <li><strong>Pneumocócica:</strong> Indicada para idosos acamados, institucionalizados e povos indígenas</li>
+                        </ul>
+                        <ul class="col-lg-6 lista-observacoes">
+                            <li><strong>Varicela:</strong> Para povos indígenas e trabalhadores de saúde sem histórico da doença</li>
+                            <li><strong>COVID-19 e Influenza:</strong> Podem ser aplicadas no mesmo dia, em locais diferentes</li>
+                            <li><strong>Contraindicações:</strong> Sempre informe ao profissional sobre alergias e medicamentos em uso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 cta-vacinas">
+                    <div class="alert alert-success">
+                        <h4 class="alert-heading text-success mb-3">🏥 Onde se vacinar?</h4>
+                        <p class="mb-2 fs-5"><strong>Procure a Unidade Básica de Saúde (UBS) mais próxima da sua casa.</strong></p>
+                        <p class="mb-4 fs-5"><strong>Leve sua Carteira de Identidade.</strong></p>
+                        <button class="btn btn-primary btn-lg" onclick="window.open('https://www.google.com/maps/search/ubs+anapolis/@-16.3390794,-48.9303596,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D', '_blank')" aria-label="Abrir mapa das UBS de Anápolis em nova aba">
+                            📍 Encontrar UBS em Anápolis
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de chamada para ação - convida o usuário a se cadastrar -->
+            <section id="cta-cadastro" class="text-center bg-light rounded p-5">
+                <h2 class="text-primary mb-3">Quer Receber Conteúdos Exclusivos sobre Saúde?</h2>
+                <p class="lead mb-4">Cadastre-se e receba informações importantes sobre medicamentos, vacinas e cuidados com sua saúde!</p>
+                <button id="btnMostrarFormulario" class="btn btn-primary btn-lg px-5 py-3">
+                    💖 Quero me cadastrar para cuidar de mim!
+                </button>
+            </section>
+
+            <!-- Formulário de cadastro oculto que aparece quando o usuário clica no botão -->
+            <section id="formulario-cadastro" class="bg-light rounded p-4 mt-4" style="display: none;">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                                                <h3 class="text-center text-primary mb-4">Complete seus dados</h3>
+                        
+                        <!-- Formulário de cadastro -->
+                        <form id="formCadastro" method="post" action="php/save-lead.php" class="needs-validation" novalidate>
+                            <!-- Campos do formulário -->
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nome" class="form-label fs-5">
+                                        <i class="fas fa-user text-primary"></i> Seu nome completo *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control form-control-lg" 
+                                        id="nome" 
+                                        name="firstName"
+                                        placeholder="Digite seu nome completo"
+                                        required 
+                                        minlength="2" 
+                                        maxlength="100"
+                                        aria-describedby="nomeHelp"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Por favor, digite seu nome completo (pelo menos 2 caracteres).
+                                    </div>
+                                    <div id="nomeHelp" class="form-text">Exemplo: Maria da Silva Santos</div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label fs-5">
+                                        <i class="fas fa-envelope text-primary"></i> Seu melhor email *
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control form-control-lg" 
+                                        id="email" 
+                                        name="email"
+                                        placeholder="seuemail@exemplo.com"
+                                        required
+                                        aria-describedby="emailHelp"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Por favor, digite um email válido.
+                                    </div>
+                                    <div id="emailHelp" class="form-text">Usaremos para enviar informações sobre saúde</div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefone" class="form-label fs-5">
+                                        <i class="fas fa-phone text-primary"></i> Seu telefone (WhatsApp) *
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        class="form-control form-control-lg" 
+                                        id="telefone" 
+                                        name="phone"
+                                        placeholder="(00) 00000-0000"
+                                        required
+                                        pattern="[\(\)\s\-\+\d]+"
+                                        aria-describedby="telefoneHelp"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Por favor, digite um número de telefone válido.
+                                    </div>
+                                    <div id="telefoneHelp" class="form-text">Usaremos apenas para contato importante sobre saúde</div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="idade" class="form-label fs-5">
+                                        <i class="fas fa-birthday-cake text-primary"></i> Sua idade *
+                                    </label>
+                                    <div class="input-group">
+                                        <input 
+                                            type="number" 
+                                            class="form-control form-control-lg" 
+                                            id="idade" 
+                                            name="idade"
+                                            placeholder="60"
+                                            required 
+                                            min="60" 
+                                            max="120"
+                                            aria-describedby="idadeHelp"
+                                        >
+                                        <button class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#modalIdadeHelper" aria-label="Ajuda para calcular idade" title="Clique aqui se tiver dificuldade para digitar sua idade. Vamos te ajudar!">
+                                            <i class="fas fa-question-circle"></i>
+                                        </button>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Por favor, digite uma idade entre 50 e 120 anos.
+                                    </div>
+                                    <div id="idadeHelp" class="form-text">Nossa plataforma é focada em pessoas com 60+ anos</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-success btn-lg px-5 py-3" id="btnEnviarFormulario">
+                                    <i class="fas fa-heart"></i> Completar Cadastro e Receber Conteúdos de Saúde
+                                </button>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-shield-alt"></i> 
+                                    Seus dados estão protegidos pela Lei Geral de Proteção de Dados (LGPD)
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="modal fade" id="modalIdadeHelper" tabindex="-1" aria-labelledby="modalIdadeHelperLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="modalIdadeHelperLabel">🧮 Ferramentas para Inserir Idade</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="idade-display-modal" id="idadeDisplayModal">
+                                <span class="idade-numero-modal">60</span>
+                                <span class="idade-texto-modal">anos</span>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">🎯 Usar botões:</h6>
+                                <div class="idade-controles-modal">
+                                    <button type="button" class="btn-idade-modal btn-menos-modal" id="btnMenosIdadeModal">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span class="idade-atual-texto">Idade atual</span>
+                                    <button type="button" class="btn-idade-modal btn-mais-modal" id="btnMaisIdadeModal">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                                
+                            <div class="mb-4">
+                                <h6 class="text-primary mb-3">🎚️ Usar controle deslizante:</h6>
+                                <div class="slider-container-modal">
+                                    <input type="range" class="idade-slider-modal" id="idadeSliderModal" min="60" max="120" value="60" step="1">
+                                    <div class="slider-labels-modal">
+                                        <span>60 anos</span>
+                                        <span>90 anos</span>
+                                        <span>120 anos</span>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="mb-3">
+                                <h6 class="text-primary mb-3">📅 Calcular pela data de nascimento:</h6>
+                                <label for="anoNascimentoModal" class="form-label">Ano em que você nasceu:</label>
+                                <input type="number" class="form-control form-control-lg" id="anoNascimentoModal" placeholder="Ex: 1958" min="1900" max="2025">
+                                <div class="form-text">💡 Digite o ano e a idade será calculada automaticamente</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌ Cancelar</button>
+                            <button type="button" class="btn btn-success" id="btnConfirmarIdade">✅ Confirmar Idade</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="lgpdModal" class="modal-lgpd" style="display: none;">
+        <div class="modal-lgpd-content">
+            <div class="modal-lgpd-header">
+                <h3>🛡️ Termo de Privacidade e Proteção de Dados</h3>
+            </div>
+            <div class="modal-lgpd-body">
+                <p><strong>Antes de continuar, queremos explicar algo importante.</strong></p>
+                <p>Quando você preenche este formulário, nós guardamos seus dados (como nome, e-mail e telefone) com segurança.</p>
+                <p>Isso serve apenas para entrar em contato e enviar informações sobre saúde e bem-estar.</p>
+                <p><strong>Seus dados nunca serão vendidos ou compartilhados com outras empresas.</strong></p>
+                <p>Você pode pedir para excluir suas informações a qualquer momento.</p>
+                <p class="mb-4"><strong>Você concorda com o uso dos seus dados conforme descrito acima?</strong></p>
+            </div>
+            <div class="modal-lgpd-footer">
+                <button id="cancelarLgpd" class="btn btn-outline-secondary btn-lg">❌ Não, quero cancelar</button>
+                <button id="aceitarLgpd" class="btn btn-success btn-lg">✅ Sim, eu aceito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé com informações do projeto e contato -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Viver Bem na Melhor Idade</h5>
+                    <p class="mb-0">Cuidando da sua saúde com informação de qualidade</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p class="mb-0">© 2025. Feito por Pedro Solozabal. Todos os direitos reservados.</p>
+                    <p class="mb-0">📞 Entre em contato: (62) 98158-9221</p>
+                    <p class="mb-0">✉️ Email: pedrosolozabal@gmail.com</p>
+                    <p class="mb-0"><a href="php/dashboard.php" class="text-light text-decoration-none">📊 Dashboard Administrativo</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JavaScript - componentes interativos e responsividade -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- SISTEMA DE IDADE - Código inline para evitar conflitos -->
+    <script>
+        let idade = 60;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Sistema de idade iniciado...');
+            
+            // Botão menos
+            document.getElementById('btnMenosIdadeModal')?.addEventListener('click', function() {
+                console.log('➖ Botão menos clicado!');
+                if (idade > 60) {
+                    idade--;
+                    document.querySelector('.idade-numero-modal').textContent = idade;
+                    document.getElementById('idadeSliderModal').value = idade;
+                }
+            });
+            
+            // Botão mais
+            document.getElementById('btnMaisIdadeModal')?.addEventListener('click', function() {
+                console.log('➕ Botão mais clicado!');
+                if (idade < 120) {
+                    idade++;
+                    document.querySelector('.idade-numero-modal').textContent = idade;
+                    document.getElementById('idadeSliderModal').value = idade;
+                }
+            });
+            
+            // Slider
+            document.getElementById('idadeSliderModal')?.addEventListener('input', function() {
+                console.log('🎚️ Slider alterado!');
+                idade = parseInt(this.value);
+                document.querySelector('.idade-numero-modal').textContent = idade;
+            });
+            
+            // Campo ano
+            document.getElementById('anoNascimentoModal')?.addEventListener('input', function() {
+                const ano = parseInt(this.value);
+                if (ano >= 1900 && ano <= 2025) {
+                    const anoAtual = new Date().getFullYear();
+                    idade = anoAtual - ano;
+                    if (idade >= 60 && idade <= 120) {
+                        document.querySelector('.idade-numero-modal').textContent = idade;
+                        document.getElementById('idadeSliderModal').value = idade;
+                    }
+                }
+            });
+            
+            // Confirmar
+            document.getElementById('btnConfirmarIdade')?.addEventListener('click', function() {
+                console.log('✅ Confirmando idade:', idade);
+                document.getElementById('idade').value = idade;
+                bootstrap.Modal.getInstance(document.getElementById('modalIdadeHelper')).hide();
+            });
+            
+            console.log('✅ Sistema de idade configurado!');
+        });
+    </script>
+
+    <!-- Scripts da aplicação carregados em ordem de dependência -->
+    <script src="js/main.js"></script><!-- Funcionalidades principais e inicialização -->
+    <script src="js/form-validation.js"></script><!-- Validação de formulários -->
+    <script src="js/privacy.js"></script><!-- Gerenciamento de privacidade/LGPD -->
+    <script src="js/quiz-data.js"></script><!-- Dados das perguntas do quiz -->
+    <script src="js/quiz-dom.js"></script><!-- Manipulação DOM do quiz -->
+    <script src="js/quiz.js"></script><!-- Lógica principal do quiz -->
+    <script src="js/flashcards.js"></script><!-- Sistema de flashcards interativos -->
+    <script src="js/audio-system-new.js?v=FINAL"></script><!-- Sistema de áudio e acessibilidade -->
+    
+</body>
+</html>

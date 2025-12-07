@@ -1,0 +1,1501 @@
+/* custom.css - Estilos amigo do idoso - Verde Saúde */
+:root {
+    --verde-principal: #198754;
+    --verde-escuro: #146c43;
+    --verde-claro: #d1e7dd;
+    --fundo-claro: #f8f9fa;
+    --cinza-suave: #e9ecef;
+    --texto-escuro: #212529;
+    --branco: #ffffff;
+    --fonte-grande: 18px;
+    --fonte-muito-grande: 20px;
+    --espacamento-grande: 25px;
+}
+
+/* REGRAS GERAIS DE ACESSIBILIDADE */
+.fonte-amigavel {
+    font-size: var(--fonte-grande);
+    line-height: 1.6;
+    color: var(--texto-escuro);
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: var(--fundo-claro);
+}
+
+body {
+    background-color: var(--fundo-claro);
+    min-height: 100vh;
+}
+
+/* TIPOGRAFIA AMPLIADA */
+h1 { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: var(--verde-escuro);
+}
+h2 { 
+    font-size: 2rem; 
+    font-weight: 600; 
+    color: var(--verde-escuro);
+}
+h3 { 
+    font-size: 1.75rem; 
+    font-weight: 600; 
+    color: var(--verde-escuro);
+}
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+
+p, li, span, div {
+    font-size: var(--fonte-grande);
+    line-height: 1.6;
+    color: var(--texto-escuro);
+}
+
+/* BOTÕES GRANDES E VISÍVEIS */
+.btn {
+    font-size: var(--fonte-grande);
+    padding: 15px 30px;
+    min-height: 60px;
+    border-radius: 50px !important; /* rounded-pill */
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    font-size: var(--fonte-muito-grande);
+    padding: 18px 35px;
+    min-height: 70px;
+}
+
+.btn-primary {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-escuro);
+    border-color: var(--verde-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #6c757d;
+    color: #6c757d;
+}
+
+/* FORMULÁRIOS ACESSÍVEIS */
+.form-control {
+    font-size: var(--fonte-grande);
+    padding: 15px;
+    height: auto;
+    min-height: 60px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    background-color: var(--branco);
+}
+
+.form-control-lg {
+    font-size: var(--fonte-muito-grande);
+    padding: 18px;
+    min-height: 70px;
+}
+
+.form-label {
+    font-size: var(--fonte-grande);
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--texto-escuro);
+}
+
+.form-control:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+/* BANNER DE COOKIES */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    border-top: 4px solid var(--verde-principal);
+    padding: 20px 0;
+    z-index: 9998;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+}
+
+.cookie-banner h5 {
+    color: var(--verde-escuro);
+    margin-bottom: 10px;
+}
+
+/* ADICIONE ESTAS REGRAS PARA MELHORAR O ESPAÇAMENTO DOS BOTÕES */
+.cookie-banner .btn {
+    margin: 5px; /* Espaçamento entre os botões */
+    min-width: 200px; /* Largura mínima para os botões */
+}
+
+.cookie-banner .text-end {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px; /* Espaçamento consistente entre os botões */
+}
+
+/* MELHORIAS ESPECÍFICAS PARA MOBILE */
+@media (max-width: 768px) {
+    .cookie-banner .text-end {
+        text-align: left !important;
+        margin-top: 15px;
+        justify-content: center; /* Centraliza os botões no mobile */
+    }
+    
+    .cookie-banner .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        min-width: auto; /* Remove a largura mínima no mobile */
+    }
+    
+    /* ESPAÇAMENTO EXTRA PARA MOBILE */
+    .cookie-banner {
+        padding: 25px 0;
+    }
+    
+    .cookie-banner .row.align-items-center {
+        gap: 15px;
+    }
+}
+
+/* PARA TELAS MÉDIAS (tablets) */
+@media (max-width: 992px) and (min-width: 769px) {
+    .cookie-banner .btn {
+        min-width: 180px; /* Ajusta a largura mínima para tablets */
+        margin: 8px;
+    }
+}
+
+/* MODAL LGPD */
+.modal-lgpd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-lgpd-content {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    font-size: var(--fonte-grande);
+    border: 3px solid var(--verde-principal);
+}
+
+.modal-lgpd-header h3 {
+    color: var(--verde-escuro);
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+}
+
+.modal-lgpd-body {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.modal-lgpd-footer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* HEADER ACESSÍVEL */
+header {
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-escuro));
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    color: var(--branco) !important;
+}
+
+header p {
+    color: var(--branco) !important;
+    opacity: 0.9;
+}
+
+/* SEÇÕES COM ESPAÇAMENTO AMPLIADO */
+section {
+    margin-bottom: var(--espacamento-grande);
+    padding: 30px 0;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* SEÇÃO CTA E FORMULÁRIO */
+#cta-cadastro {
+    background: linear-gradient(135deg, var(--verde-claro), var(--branco));
+    border: 2px solid var(--verde-principal);
+}
+
+#formulario-cadastro {
+    background: var(--branco);
+    border: 2px solid var(--verde-claro);
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.1);
+}
+
+/* ALERTAS E MENSAGENS */
+.alert {
+    font-size: var(--fonte-grande);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.alert-info {
+    background-color: var(--verde-claro);
+    border-color: var(--verde-principal);
+    color: var(--verde-escuro);
+}
+
+/* FOOTER ACESSÍVEL */
+footer {
+    background: var(--texto-escuro) !important;
+    font-size: var(--fonte-grande);
+    margin-top: 50px;
+}
+
+footer h5 {
+    color: var(--branco);
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: var(--cinza-suave) !important;
+}
+
+/* MELHORIAS DE USABILIDADE */
+*:focus {
+    outline: 3px solid #ffbf47 !important;
+    outline-offset: 2px;
+}
+
+/* CONTRASTE E VISIBILIDADE */
+.text-primary {
+    color: var(--verde-escuro) !important;
+}
+
+.bg-primary {
+    background-color: var(--verde-principal) !important;
+}
+
+.bg-light {
+    background-color: var(--cinza-suave) !important;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    :root {
+        --fonte-grande: 16px;
+        --fonte-muito-grande: 18px;
+    }
+    
+    .btn, .form-control {
+        min-height: 55px;
+    }
+    
+    .modal-lgpd-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cookie-banner .text-end {
+        text-align: left !important;
+        margin-top: 15px;
+    }
+    
+    .cookie-banner .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* ANIMAÇÕES SUAVES */
+.cookie-banner,
+.modal-lgpd,
+#formulario-cadastro {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ESTILOS ESPECÍFICOS PARA ÍCONES E EMOJIS */
+h2::before {
+    margin-right: 10px;
+}
+
+/* MELHORAR VISIBILIDADE DE LINKS */
+a {
+    color: var(--verde-principal);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--verde-escuro);
+    text-decoration: none;
+}
+
+/* QUIZ - ESTILOS ACESSÍVEIS (ADICIONE ISSO AO FINAL DO SEU CSS) */
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-card {
+    background: var(--branco);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 2px solid var(--verde-claro);
+}
+
+.quiz-header {
+    border-bottom: 2px solid var(--verde-claro);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.pergunta-texto {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--verde-escuro);
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.alternativas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.alternativa-btn {
+    background: var(--fundo-claro);
+    border: 3px solid var(--cinza-suave);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: var(--fonte-grande);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.alternativa-btn:hover {
+    background: var(--verde-claro);
+    border-color: var(--verde-principal);
+    transform: translateY(-2px);
+}
+
+.alternativa-btn.correta {
+    background: #d1e7dd;
+    border-color: var(--verde-principal);
+    color: var(--verde-escuro);
+}
+
+.alternativa-btn.incorreta {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.alternativa-btn.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.feedback-container {
+    animation: fadeIn 0.5s ease-in-out;
+    margin: 30px 0;
+}
+
+/* Progress Bar Customizada */
+.progress {
+    height: 12px;
+    background-color: var(--cinza-suave);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Indicadores do Quiz */
+.quiz-indicators {
+    background: var(--cinza-suave);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: var(--fonte-grande);
+}
+
+.quiz-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--verde-escuro);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--texto-escuro);
+    opacity: 0.8;
+}
+
+/* Resultados do Quiz */
+.resultado-container {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.resultado-card {
+    border: 3px solid;
+    font-size: var(--fonte-muito-grande);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.resultado-excelente {
+    background: var(--verde-escuro);
+    border-color: var(--verde-escuro);
+    color: white !important;
+}
+
+/* ESTILOS ESPECÍFICOS PARA O RESULTADO EXCELENTE - CORREÇÃO DO CONTRASTE */
+.resultado-excelente,
+.resultado-excelente * {
+    color: white !important;
+}
+
+.resultado-excelente .resultado-pontuacao {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+}
+
+
+.resultado-bom {
+    background: var(--verde-claro);
+    border-color: var(--verde-principal);
+    color: var(--verde-escuro);
+}
+
+.resultado-medio {
+    background: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+.resultado-baixo {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.resultado-icone {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.resultado-titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.resultado-pontuacao {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.resultado-mensagem {
+    font-size: var(--fonte-muito-grande);
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.alternativa-btn:active {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.fade-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Suporte a teclado melhorado */
+.alternativa-btn:focus {
+    outline: 3px solid #ffbf47 !important;
+    outline-offset: 2px;
+}
+
+/* Estados de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .fade-transition,
+    .alternativa-btn:active {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Responsividade do Quiz */
+@media (max-width: 768px) {
+    .quiz-card {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    .pergunta-texto {
+        font-size: 1.3rem;
+    }
+    
+    .alternativa-btn {
+        padding: 15px;
+        min-height: 70px;
+        font-size: 16px;
+    }
+    
+    .quiz-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        flex: none;
+    }
+    
+    .resultado-card {
+        padding: 25px;
+    }
+    
+    .resultado-titulo {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========== ANIMAÇÕES DO BOTÃO DE ÁUDIO ========== */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+        background-color: #dc3545;
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 8px rgba(220, 53, 69, 0.3);
+        background-color: #e74c3c;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+        background-color: #dc3545;
+    }
+}
+
+/* Estilo melhorado para o botão de áudio quando ativo */
+.btn.audio-ativo {
+    position: relative;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn.audio-ativo:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* Indicador visual adicional */
+.btn.audio-ativo::before {
+    content: '🎵';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+/* ========== CALENDÁRIO DE VACINAÇÃO ========== */
+.calendario-container {
+    background: var(--branco);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.1);
+    border: 2px solid var(--verde-claro);
+}
+
+.calendario-vacinas {
+    font-size: var(--fonte-grande);
+    margin: 0;
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendario-vacinas th {
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-escuro));
+    color: var(--branco) !important;
+    font-weight: 600;
+    padding: 20px 15px;
+    border: none;
+    text-align: center;
+    font-size: var(--fonte-grande);
+    vertical-align: middle;
+}
+
+.calendario-vacinas td {
+    padding: 18px 15px;
+    vertical-align: middle;
+    border: 1px solid #ffffff;
+    font-size: var(--fonte-grande);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Exceções específicas por coluna */
+.calendario-vacinas td:nth-child(1) {
+    text-align: left;
+    font-weight: 600;
+}
+
+.calendario-vacinas td:nth-child(2) {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* SISTEMA DE CORES ALTERNADAS PERFEITO */
+.calendario-vacinas tbody tr:nth-child(1) {
+    background-color: var(--verde-escuro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(2) {
+    background-color: var(--verde-claro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(3) {
+    background-color: var(--verde-escuro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(4) {
+    background-color: var(--verde-claro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(5) {
+    background-color: var(--verde-escuro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(6) {
+    background-color: var(--verde-claro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(7) {
+    background-color: var(--verde-escuro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+.calendario-vacinas tbody tr:nth-child(8) {
+    background-color: var(--verde-claro) !important;
+    color: var(--texto-escuro) !important;
+}
+
+/* Garantir que TODOS os elementos herdem as cores */
+.calendario-vacinas tbody tr td,
+.calendario-vacinas tbody tr .vacina-nome,
+.calendario-vacinas tbody tr strong {
+    color: inherit !important;
+}
+
+/* Hover effects suaves */
+.calendario-vacinas tbody tr:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.2);
+}
+
+/* Estilos específicos das vacinas */
+.vacina-nome {
+    font-weight: 700;
+}
+
+.vacina-nome strong {
+    font-size: 1.1rem;
+}
+
+/* Badges para identificação - Adaptados às cores das linhas */
+.badge-anual, .badge-semestral {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.badge-anual {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.badge-semestral {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Observações */
+.observacoes-vacinas {
+    background: var(--cinza-suave);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid var(--verde-principal);
+}
+
+.lista-observacoes {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-observacoes li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    font-size: var(--fonte-grande);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.lista-observacoes li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--verde-principal);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* CTA Vacinas */
+.cta-vacinas .alert-success {
+    border: 2px solid var(--verde-principal);
+    background: linear-gradient(135deg, var(--verde-claro), var(--branco));
+    padding: 30px;
+}
+
+.cta-vacinas .alert-heading {
+    font-size: 1.75rem !important;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-vacinas .fs-5 {
+    font-size: 1.1rem !important;
+    line-height: 1.6;
+    color: var(--texto-escuro);
+}
+
+/* Responsividade da tabela */
+@media (max-width: 768px) {
+    .calendario-container {
+        padding: 15px;
+    }
+    
+    .calendario-vacinas {
+        font-size: 16px;
+    }
+    
+    .calendario-vacinas thead {
+        display: none;
+    }
+    
+    .calendario-vacinas tbody,
+    .calendario-vacinas tr,
+    .calendario-vacinas td {
+        display: block;
+        width: 100%;
+    }
+    
+    .calendario-vacinas tr {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 2px solid var(--verde-claro);
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(25, 135, 84, 0.1);
+    }
+    
+    /* Manter cores alternadas no mobile */
+    .calendario-vacinas tbody tr:nth-child(1) {
+        background-color: var(--verde-escuro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(2) {
+        background-color: var(--verde-claro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(3) {
+        background-color: var(--verde-escuro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(4) {
+        background-color: var(--verde-claro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(5) {
+        background-color: var(--verde-escuro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(6) {
+        background-color: var(--verde-claro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(7) {
+        background-color: var(--verde-escuro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas tbody tr:nth-child(8) {
+        background-color: var(--verde-claro) !important;
+        color: var(--texto-escuro) !important;
+    }
+    
+    .calendario-vacinas td {
+        border: none;
+        padding: 8px 0;
+        text-align: left;
+    }
+    
+    .calendario-vacinas td::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+        display: inline-block;
+        min-width: 100px;
+        color: inherit;
+    }
+    
+    .vacina-nome::before {
+        display: none;
+    }
+    
+    .badge-anual, .badge-semestral {
+        display: block;
+        margin: 5px 0;
+        width: fit-content;
+    }
+}
+
+/* Estados de foco para acessibilidade */
+.calendario-vacinas tr:focus-within {
+    outline: 3px solid #ffbf47;
+    outline-offset: 2px;
+}
+
+/* Tooltip simples para informações extras */
+.vacina-nome[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background: var(--texto-escuro);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    z-index: 1000;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+/* ========== FLASHCARDS SIMPLES - GRID ========== */
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.medicamento-card {
+    perspective: 1000px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+}
+
+.medicamento-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    border: 3px solid var(--verde-principal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.15);
+}
+
+.card-front {
+    background: linear-gradient(135deg, var(--verde-claro), var(--branco));
+}
+
+.card-back {
+    background: linear-gradient(135deg, #fff3cd, var(--branco));
+    transform: rotateY(180deg);
+    padding: 20px;
+    overflow-y: auto;
+    /* Melhorar o posicionamento interno */
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+}
+
+.card-front h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--verde-escuro);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.card-front h4 {
+    font-size: 1rem;
+    color: var(--texto-escuro);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.card-back h5 {
+    color: #dc3545;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-align: center;
+    flex-shrink: 0; /* Impede que o título encolha */
+}
+
+.card-back .cuidados {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: justify;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 5px; /* Espaço para scroll se necessário */
+    margin-bottom: 0;
+}
+
+.card-back .cuidados p {
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+.card-back .cuidados p:last-child {
+    margin-bottom: 0; /* Remove margem do último parágrafo */
+}
+
+.card-back .cuidados strong {
+    color: #dc3545;
+}
+
+/* Hover effect */
+.medicamento-card:hover .card-inner {
+    box-shadow: 0 8px 25px rgba(25, 135, 84, 0.3);
+}
+
+/* Melhorar scroll customizado para o conteúdo */
+.card-back .cuidados::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card-back .cuidados::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.card-back .cuidados::-webkit-scrollbar-thumb {
+    background: var(--verde-principal);
+    border-radius: 2px;
+}
+
+.card-back .cuidados::-webkit-scrollbar-thumb:hover {
+    background: var(--verde-escuro);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .flashcards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .medicamento-card {
+        height: 200px; /* Aumentar altura no mobile */
+    }
+    
+    .card-face {
+        padding: 18px; /* Mais padding no mobile */
+    }
+    
+    .card-back {
+        padding: 18px;
+    }
+    
+    .card-front h3 {
+        font-size: 1.1rem;
+    }
+    
+    .card-front h4 {
+        font-size: 0.9rem;
+    }
+    
+    .card-back .cuidados {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .card-back h5 {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+    }
+    
+    .medicamento-card {
+        height: 220px; /* Altura ainda maior para telas muito pequenas */
+    }
+    
+    .card-face {
+        padding: 16px;
+    }
+    
+    .card-back {
+        padding: 16px;
+    }
+    
+    .card-back .cuidados {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .card-back h5 {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+}
+
+/* ================================
+   COMPONENTE DE IDADE DISCRETO
+   ================================ */
+
+/* Container do input com helper */
+.idade-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.idade-input-container input {
+    padding-right: 85px; /* Mais espaço para evitar sobreposição com spinners nativos */
+}
+
+/* Botão helper discreto - posicionado mais à esquerda */
+.btn-helper-idade {
+    position: absolute;
+    right: 45px; /* Movido mais para a esquerda para não sobrepor os spinners */
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--verde-principal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px; /* Ligeiramente menor */
+    height: 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(25, 135, 84, 0.3);
+    z-index: 10; /* Garantir que fique acima mas não interfira */
+}
+
+.btn-helper-idade:hover {
+    background: var(--verde-escuro);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4);
+}
+
+.btn-helper-idade:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Setas customizadas para substituir as nativas */
+.setas-customizadas {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+.seta-cima,
+.seta-baixo {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: linear-gradient(135deg, var(--verde-claro), #f8f9fa);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--verde-escuro);
+    transition: all 0.2s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.seta-cima {
+    border-bottom: 1px solid #ddd;
+}
+
+.seta-cima:hover,
+.seta-baixo:hover {
+    background: var(--verde-principal);
+    color: white;
+}
+
+.seta-cima:active,
+.seta-baixo:active {
+    transform: scale(0.9);
+}
+
+/* Estilizar os spinners sem escondê-los */
+.idade-input-container input[type="number"]::-webkit-inner-spin-button,
+.idade-input-container input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    cursor: pointer;
+    width: 20px;
+    background: var(--verde-claro);
+    border-radius: 0 4px 4px 0;
+}
+
+/* ================================
+   MODAL DE FERRAMENTAS DE IDADE
+   ================================ */
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    padding: 20px 25px;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-footer {
+    border-radius: 0 0 15px 15px;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px;
+}
+
+/* Display da idade no modal */
+.idade-display-modal {
+    text-align: center;
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-escuro));
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+}
+
+.idade-numero-modal {
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.idade-texto-modal {
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Controles de botões no modal */
+.idade-controles-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: var(--fundo-claro);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.btn-idade-modal {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.btn-menos-modal {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+}
+
+.btn-mais-modal {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+}
+
+.btn-idade-modal:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-idade-modal:active {
+    transform: scale(0.95);
+}
+
+.idade-atual-texto {
+    font-weight: 600;
+    color: var(--verde-escuro);
+    font-size: 1.1rem;
+}
+
+/* Slider no modal */
+.slider-container-modal {
+    background: var(--fundo-claro);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.idade-slider-modal {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #28a745 100%);
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.idade-slider-modal::-webkit-slider-thumb {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--verde-principal);
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(25, 135, 84, 0.5);
+    transition: all 0.3s ease;
+    border: 3px solid white;
+}
+
+.idade-slider-modal::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.7);
+}
+
+.idade-slider-modal::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--verde-principal);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 3px 8px rgba(25, 135, 84, 0.5);
+}
+
+.slider-labels-modal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Calculadora no modal */
+.calculadora-modal {
+    background: var(--fundo-claro);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.calculadora-modal input {
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.calculadora-modal input:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+    transform: scale(1.02);
+}
+
+/* Responsividade do modal */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .idade-numero-modal {
+        font-size: 2.8rem;
+    }
+    
+    .btn-idade-modal {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .idade-controles-modal {
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .idade-numero-modal {
+        font-size: 2.3rem;
+    }
+    
+    .btn-idade-modal {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .slider-labels-modal {
+        font-size: 0.8rem;
+    }
+}

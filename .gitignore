@@ -1,0 +1,26 @@
+# System
+.DS_Store
+Thumbs.db
+
+# IDEs / editors
+.vscode/
+.idea/
+
+# PHP / Composer
+/vendor/
+composer.lock
+
+# Node
+node_modules/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# OS generated files
+*.log
+
+# Ignore other local config
+/.vagrant/
