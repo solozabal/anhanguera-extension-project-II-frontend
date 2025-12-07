@@ -9,17 +9,26 @@
 [![LGPD](https://img.shields.io/badge/LGPD-Compliant-28a745?style=flat-square)](https://www.gov.br/cidadania/pt-br/acesso-a-informacao/lgpd)
 
 <div align="center">
-  <h3 style="margin-bottom:8px">🎬 Demonstração do Projeto — Viver Bem na Melhor Idade</h3>
+  <h3 style="margin-bottom:16px">🎬 Project Demo — Living Well in the Best Age</h3>
+  
   <a href="videos/video-demo-extension-project-II.mp4" target="_blank" rel="noopener noreferrer">
-    <img
-      src="videos/video-demo-extension-project-II.gif"
-      alt="Demo: Viver Bem na Melhor Idade — clique para ver"
-      width="880"
-      style="border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.25); border:1px solid rgba(0,0,0,0.06);"
-    />
+    <div style="position:relative; display:inline-block;">
+      <img
+        src="img/screenshot-thumbnail.png"
+        alt="Thumbnail do projeto - Clique para ver vídeo"
+        width="640"
+        style="border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15); border:1px solid #ddd;"
+      />
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:rgba(0,0,0,0.7); color:white; padding:10px 24px; border-radius:6px; font-weight:bold;">
+        ▶ Assistir Vídeo
+      </div>
+    </div>
   </a>
+  
   <br/>
-  <em style="color:#6c757d">Preview em GIF (loop). Clique para abrir o vídeo completo (MP4) em nova aba.</em>
+  <p style="color:#666; font-size:0.9em; margin-top:12px;">
+    Click on the image to open the demonstration video.
+  </p>
 </div>
 
 ## 🎯 Overview
