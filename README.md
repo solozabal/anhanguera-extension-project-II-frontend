@@ -9,18 +9,16 @@
 [![LGPD](https://img.shields.io/badge/LGPD-Compliant-28a745?style=flat-square)](https://www.gov.br/cidadania/pt-br/acesso-a-informacao/lgpd)
 
 <div align="center">
-  <h3 style="margin-bottom:12px">🎬 Project Demo — Living Well in the Best Age</h3>
-  <a href="videos/video-demo-extension-project-II.mp4" target="_blank" rel="noopener noreferrer">
-    <img
-      src="img/screenshot-thumbnail.png"
-      alt="Click to watch the demo video"
-      width="720"
-      style="border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.18); border:1px solid #e0e0e0;"
-    />
-  </a>
+  <h3 style="margin-bottom:12px">📸 Screenshot Project</h3>
+  <img
+    src="img/screencapture-localhost-anhanguera-extension-project-II.png"
+    alt="Full project screenshot"
+    width="900"
+    style="border-radius:14px; box-shadow:0 10px 32px rgba(0,0,0,0.18); border:1px solid #e0e0e0;"
+  />
   <br>
   <span style="color:#6c757d; font-size:0.95em;">
-    <strong>Preview:</strong> Click the image to open the full video (MP4) in a new tab.
+    <strong>Preview:</strong> Full-page screenshot of the platform interface.
   </span>
 </div>
 
